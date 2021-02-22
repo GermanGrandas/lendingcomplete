@@ -23,8 +23,8 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 # engine.execute("""DROP TABLE products;""")
 #Create tables
-models.Base.metadata.create_all(bind=engine)
-print(engine.table_names())
+# models.Base.metadata.create_all(bind=engine)
+# print(engine.table_names())
 
 def get_db():
    """provide db session to path operation functions"""
