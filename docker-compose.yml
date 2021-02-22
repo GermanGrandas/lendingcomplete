@@ -1,0 +1,29 @@
+version: "3.7"
+
+services:
+  lending-api :
+    build : ./lendingAPI
+    container_name:  lending-api
+    networks:
+      - lending-tier
+    ports: 
+    - 8000:8000
+    # expose:
+    #   - 8000
+    
+  lending-front : 
+    build : ./lendingFront
+    container_name: frontend
+    restart: always
+    depends_on: 
+            - lending-api
+    networks:
+      - lending-tier
+    ports:
+     - 80:80
+networks:
+  lending-tier:
+    driver: bridge
+
+
+
